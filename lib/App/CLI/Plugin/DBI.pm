@@ -8,7 +8,7 @@ App::CLI::Plugin::DBI - for App::CLI::Extension database base module
 
 =head1 VERSION
 
-1.02
+1.1
 
 =head1 SYNOPSIS
 
@@ -72,14 +72,17 @@ multi db setting
 
 use strict;
 use warnings;
-use base qw(Class::Data::Accessor);
+use base qw(Class::Accessor::Grouped);
 use DBI;
 
 our $DEFAULT_HANDLE = "default";
-our $VERSION        = '1.02';
+our $VERSION        = '1.1';
 
-__PACKAGE__->mk_classaccessor(_dbh => {});
-__PACKAGE__->mk_classaccessor(dbi_default_handle => $DEFAULT_HANDLE);
+#__PACKAGE__->mk_classaccessor(_dbh => {});
+#__PACKAGE__->mk_classaccessor(dbi_default_handle => $DEFAULT_HANDLE);
+__PACKAGE__->mk_group_accessors(inherited => "_dbh", "dbi_default_handle");
+__PACKAGE__->_dbh({});
+__PACKAGE__->dbi_default_handle($DEFAULT_HANDLE);
 
 =pod
 

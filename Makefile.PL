@@ -3,10 +3,10 @@ name 'App-CLI-Plugin-DBI';
 all_from 'lib/App/CLI/Plugin/DBI.pm';
 
 requires(
-      "App::CLI::Extension"   => 1.2,
-      "Class::Data::Accessor" => 0,
-      "DBI"                   => 0,
-	  "DBD::Mock"             => 0.11
+      "App::CLI::Extension"      => 1.2,
+      "Class::Accessor::Grouped" => 0,
+      "DBI"                      => 0,
+	  "DBD::Mock"                => 0.11
     );
 
 tests 't/*.t';
